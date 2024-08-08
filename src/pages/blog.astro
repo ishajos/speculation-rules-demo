@@ -11,7 +11,7 @@ const publishedBlogEntries = await getCollection("blog", ({ data }) => {
 });
 
 // Sort content entries by publication date
-publishedBlogEntries.sort(function (a, b) {
+publishedBlogEntries.sort(function(a, b) {
   return b.data.publishDate.valueOf() - a.data.publishDate.valueOf();
 });
 ---
@@ -21,7 +21,7 @@ publishedBlogEntries.sort(function (a, b) {
     <Sectionhead>
       <Fragment slot="title">Our Blog</Fragment>
       <Fragment slot="desc">
-        We write about building startups and thoughts going on our mind.
+        Lorem ipsum dolor sit amet.
       </Fragment>
     </Sectionhead>
     <main class="mt-16">
@@ -47,7 +47,7 @@ publishedBlogEntries.sort(function (a, b) {
                     </span>
 
                     <h2 class="text-3xl font-semibold leading-snug tracking-tight mt-1 ">
-                      {blogPostEntry.data.title}
+                      {blogPostEntry.slug.includes("no-prerender") ? "NO PRERENDER: " + blogPostEntry.data.title : blogPostEntry.data.title}
                     </h2>
 
                     <div class="flex gap-2 mt-3">
@@ -64,6 +64,7 @@ publishedBlogEntries.sort(function (a, b) {
                   </div>
                 </div>
               </a>
+
             </li>
           ))
         }
